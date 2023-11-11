@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/96b15be804.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        max-width: 1500px;
+
+        margin: 0 auto;
+    }
+
+    #logo {
+        width: 80px;
+        transition: 0.2s;
+    }
+
+    #logo:hover {
+
+        transform: scale(1.1);
+    }
+
+    #nav {
+        width: 62%;
+        display: flex;
+        /* width: 70vw; */
+        align-items: center;
+        justify-content: space-between;
+        /* border: 1px solid rgba(0, 0, 0, 0.212); */
+        position: fixed;
+        top: 0px;
+        transition: all 0.3s ease-in;
+    }
+
+    .scroll {
+
+        background-color: rgba(0, 0, 0, 0.473);
+        position: fixed;
+    }
+
+
+
+
+    li {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        font-size: 1.1rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(0, 0, 73);
+        font-family: sans-serif;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 50px;
+        transition: 0.2s ease-out;
+    }
+
+    a:hover {
+        background-color: rgba(0, 0, 0, 0.137);
+    }
+
+    #input {
+        width: 220px;
+        height: 34px;
+        padding-left: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.185);
+        outline: none;
+        font-size: 1rem;
+        border-radius: 5px;
+
+    }
+
+    ::placeholder {
+        font-size: 1rem;
+    }
+
+    #btn {
+        border: 1px solid rgba(0, 0, 0, 0.185);
+        width: 80px;
+        height: 33px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+
+    #btn:hover {
+        background-color: rgba(0, 0, 0, 0.151);
+
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    #img {
+        margin-top: 60px;
+        width: 350px;
+        height: 200px;
+
+    }
+
+    .main {
+        width: 420px;
+        height: 460px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 32px;
+        transition: 0.3s;
+        cursor: pointer;
+        border-radius: 8px;
+
+
+    }
+
+    .main:hover {
+        background-color: rgba(0, 0, 0, 0.144);
+    }
+
+    #h3 {
+        margin-top: 7px;
+        margin-bottom: 5px;
+    }
+
+    #date {
+        margin-bottom: 5px;
+    }
+
+    #card-container {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 50px;
+        row-gap: 40px;
+        width: 1400px;
+        /* margin-left: 30px; */
+        justify-content: center;
+        margin-top: 80px;
+        margin-right: -6px;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        /* border: 3px solid; */
+        font-family: sans-serif;
+
+    }
+
+    .active {
+
+        background-color: rgba(0, 0, 0, 0.137);
+    }
+
+    #para {
+        width: 390px;
+    }
+
+    #h3 {
+        width: 340px;
+    }
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.5s;
+        width: 700px;
+    }
+
+    #search{
+        display: flex;
+    }
+
+    .ham{
+        display: none;
+    }
+    
+    .cut{
+        display: none;
+    }
+    
+    @media screen and (max-width:680px) {
+        ul{
+            display: block;
+            position: absolute;
+            width: 50vw;
+            top: 0;
+            height: 100vh;
+            right: 0;
+            background-color: rgba(9, 9, 36, 0.774);
+            transform: translateX(330px);
+            position: fixed;
+            bottom: 0;
+        }
+        li{
+            flex-direction: column;
+            text-align: center;
+            margin-top: 280px;
+            gap: 50px;
+        }
+        a{
+            
+            color: antiquewhite;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        #nav{
+            width: 100vw;
+            justify-content: center;
+            padding: 10px 0px;
+            margin: 0;
+            align-items: center;
+            position: relative;
+            position: fixed;
+
+
+        }
+        .ham{
+        display: block;
+        position: absolute;
+        right: 20px;
+        position: fixed;
+        
+    }
+    
+    .cut{
+        /* display: block; */
+        position: absolute;
+        display: none;
+        right: 20px;
+        position: fixed;
+    }
+
+
+
+    }
+</style>
+
+<body>
+    <nav>
+        <div id="nav">
+            <ul id="ul">
+                <img src="DAK-modified.png" alt="" id="logo">
+                <li>
+                    <a href="#" id="cricket">Cricket</a>
+                    <a href="#" id="politics">Politics</a>
+                    <a href="#" id="tech">Technology</a>
+                </li>
+            </ul>
+
+            <div id="search">
+                <input type="text" id="input" placeholder="e.g Science">
+                <button id="btn">Search</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div id="card-container">
+
+        </div>
+        <template id="template">
+            <div class="main">
+                <img src="Fuji_Quad_Headset_1x._SY116_CB667159060_.jpg" alt="" id="img">
+                <h3 id="h3">heading</h3>
+                <p id="date">data</p>
+                <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eaque molestiae tempora,
+                    corporis autem omnis?</p>
+            </div>
+        </template>
+    </main>
+</body>
+<script>
+    const id = 'e5f5ede6b6f6491e9851afaba53d8c0b'
+    const api = 'https://newsapi.org/v2/everything?q='
+    const from = '&from=2023-11-1'
+
+    window.addEventListener('load', fetchnews('India'))
+
+
+    async function fetchnews(query) {
+        const res = await fetch(`${api}${query}${from}&apikey=${id}`)
+        if (!res.ok) {
+            console.log("Error during news fetch!");
+        }
+        const data = await res.json()
+        console.log(data);
+        clonedata(data.articles)
+        // click(data.articles)
+    }
+
+    function clonedata(data) {
+        const template = document.getElementById('template')
+        const card = document.getElementById('card-container')
+        card.innerHTML = ''
+
+        data.forEach(article => {
+            if (!article.urlToImage) return
+
+            const clonecard = template.content.cloneNode(true);
+            const img = clonecard.getElementById('img')
+            const h3 = clonecard.getElementById('h3')
+            const date = clonecard.getElementById('date')
+            const para = clonecard.getElementById('para')
+            img.src = article.urlToImage
+            h3.innerHTML = article.title
+            para.innerHTML = article.description
+            const datee = new Date(article.publishedAt).toLocaleString('en-US', {
+                timeZone: 'Asia/Jakarta'
+            })
+            date.innerHTML = `${article.source.name} • ${datee}`
+
+            card.appendChild(clonecard);
+            const d = document.querySelectorAll('.main')
+
+            d.forEach(articl => {
+                articl.addEventListener('click', () => {
+                    window.open(article.url, '_blank')
+                })
+            })
+
+
+        })
+
+
+
+    }
+    // const d = document.querySelectorAll('.main')
+    // click(d)
+
+    // function click(article) {
+    //     article.forEach(article=>{
+    //        article.addEventListener('click',()=>{
+    //         window.open(article.url, '_blank')
+    //        })
+    //     })
+    // }
+
+
+    const btn = document.getElementById('btn');
+    const input = document.getElementById('input')
+    btn.addEventListener('click', () => {
+        const inputValue = input.value
+        if (inputValue == "") {
+            return
+        }
+        fetchnews(inputValue)
+        cricket.classList.remove('active')
+        politics.classList.remove('active')
+        tech.classList.remove('active')
+
+    })
+
+    input.addEventListener('keyup', () => {
+        if (event.key == 'Enter') {
+            btn.click()
+        }
+    })
+
+    const cricket = document.getElementById('cricket')
+    const politics = document.getElementById('politics')
+    const tech = document.getElementById('tech')
+
+    cricket.addEventListener('click', () => {
+        fetchnews('cricket')
+        cricket.classList.add('active')
+        politics.classList.remove('active')
+        tech.classList.remove('active')
+        input.value = ""
+    })
+    politics.addEventListener('click', () => {
+        fetchnews('politics')
+        politics.classList.add('active')
+        cricket.classList.remove('active')
+        tech.classList.remove('active')
+        input.value = ""
+    })
+    tech.addEventListener('click', () => {
+        fetchnews('tech')
+        tech.classList.add('active')
+        politics.classList.remove('active')
+        cricket.classList.remove('active')
+        input.value = ""
+    })
+
+    window.addEventListener('scroll', () => {
+        const scroll = document.getElementById('nav')
+        if (window.scrollY > 0) {
+            scroll.classList.add('scroll')
+        } else {
+            scroll.classList.remove('scroll')
+
+        }
+    })
+
+    const mediaQuery = window.matchMedia('(max-width: 680px)');
+
+    const ham = document.createElement('i')
+    const nav = document.getElementById('nav')
+    ham.classList.add("fa-solid", "fa-bars", "fa-lg")
+    ham.style.color = "#030029"
+    // ham.classList.add('ham')
+    nav.appendChild(ham)
+    ham.classList.add('ham')
+    nav.appendChild(ham)
+     
+    const cut = document.createElement('i')
+    const ul = document.getElementById('ul')
+    ham.addEventListener('click',()=>{
+        if (ul.style.transform == 'translateX(330px)') {
+            ul.style.transform = 'translateX(0px)'
+            cut.style.display = 'block'
+            ham.style.display = 'none'
+            
+        }
+        else{
+            ul.style.transform = 'translateX(330px)'
+            cut.style.display = 'none'
+            ham.style.display = 'block'
+
+        }
+    })
+
+    
+    
+    cut.classList.add("fa-solid", "fa-xmark", "fa-xl")
+    cut.classList.add("cut")
+    cut.style.color = "#030029"
+    nav.appendChild(cut)
+
+    cut.addEventListener('click',()=>{
+        if (ul.style.transform == 'translateX(330px)') {
+            ul.style.transform = 'translateX(0px)'
+            cut.style.display = 'block'
+            ham.style.display = 'none'
+            
+        }
+        else{
+            ul.style.transform = 'translateX(330px)'
+            cut.style.display = 'none'
+            ham.style.display = 'block'
+
+        }
+    })
+
+
+
+</script>
+
+</html>
