@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/96b15be804.js" crossorigin="anonymous"></script>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(90, 90, 90), rgb(0, 0, 0));
+    overflow: hidden;
+
+  }
+
+  #cont {
+    width: 350px;
+    max-height: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background-color: aliceblue;
+    box-shadow: 3px 3px 5px rgb(95, 95, 95);
+  }
+  
+  #sign-up {
+    padding-bottom: 20px;
+    height: 450px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transform: translateX(70px);
+    margin-top: 30px;
+    position: relative;
+  }
+
+  input {
+    width: 250px;
+    height: 30px;
+    padding-left: 5px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 0, 0, 0.295);
+    outline: none;
+
+  }
+
+  button {
+    width: 250px;
+    height: 30px;
+    background-color: rgba(156, 67, 4, 0.801);
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.829);
+    cursor: pointer;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+
+  label {
+    position: relative;
+    top: 3px;
+    color: rgb(80, 80, 80);
+    font-size: 0.7rem;
+    font-weight: 600;
+
+  }
+
+  p {
+    color: red;
+    font-size: 12px;
+  }
+
+  .icon{
+    position: absolute;
+    top: 32px;
+    right: 154px;
+    cursor: pointer;
+    
+  }
+  .eye-cross{
+    display: none;
+    cursor: pointer;
+  }
+  .eye-cross2{
+    display: none;
+    cursor: pointer;
+  }
+  .icon2{
+    position: absolute;
+    top: 32px;
+    right: 154px;
+    cursor: pointer;
+  }
+  .pass11{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .pass22{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  @media screen and (max-width:500px){
+    #cont{
+      width: 300px;
+    }
+
+    input{
+      width: 220px;
+      margin-left: 20px;
+    }
+    label{
+      margin-left: 20px;
+      font-size: 0.7rem;
+      font-weight: 100;
+    }
+    button{
+      width: 220px;
+      margin-left: 20px;
+    }
+    .icon{
+      right: 165px;
+    }
+    .icon2{
+      right: 165px;
+    }
+  }
+</style>
+
+<body>
+  <div id="container">
+    <div id="cont">
+      <h2>Registeration</h2>
+      <form action="action.nodejs" id="form">
+        <div id="sign-up">
+          <label for="input-name">NAME</label>
+          <input type="text" id="input-name" spellcheck="false" autocomplete="off">
+          <p id="name-validate"></p>
+          <label for="input-email">EMAIL</label>
+          <input type="text" id="input-email" spellcheck="false" autocomplete="off">
+          <p id="email-validate"></p>
+          <div class="pass11">
+            <label for="input-password">PASSWORD</label>
+            <input type="password" id="input-password">
+            <i class="fa-solid fa-eye fa-2xs icon " style="color: #10101087;"></i>
+            <i class="fa-regular fa-eye-slash fa-2xs icon eye-cross " style="color: #10101087;"></i>         
+            <p id="pass-validate"></p>
+          </div>
+          <div class="pass22">
+            <label for="input-password2">CONFIRM PASSWORD</label>
+            <input type="password" id="input-password2">
+            <i class="fa-solid fa-eye fa-2xs icon2 " style="color: #10101087;"></i>
+            <i class="fa-regular fa-eye-slash fa-2xs icon2 eye-cross2 " style="color: #10101087;"></i>
+            <p id="pass-validate2"></p>
+          </div>
+          <button id="submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+<script>
+  const eye1 = document.querySelector('.icon')
+  const eye_cross1 = document.querySelector('.eye-cross')
+  const eye_2 = document.querySelector('.icon2')
+  const eye_cross2 = document.querySelector('.eye-cross2')
+  eye(eye1, eye_cross1)
+  eye2(eye_2, eye_cross2)
+
+
+  function eye(eye1, eye_cross) {
+    eye1.addEventListener('click',()=>{
+      if (input_pass.type == 'password') {
+        input_pass.type = 'text'
+        eye_cross.style.display = 'block'
+      }else{
+        input_pass.type = 'password'
+        eye_cross.style.display = 'none'
+
+      }
+    })
+    eye_cross.addEventListener('click',()=>{
+      if (input_pass.type == 'text') {
+        input_pass.type = 'password'
+        eye_cross.style.display = 'none'
+      }else{
+        input_pass.type = 'text'
+        eye_cross.style.display = 'block'
+
+      }
+  })
+}
+  function eye2(eye2, eye_cross2) {
+    eye2.addEventListener('click',()=>{
+      if (input_pass2.type == 'password') {
+        input_pass2.type = 'text'
+        eye_cross2.style.display = 'block'
+      }else{
+        input_pass2.type = 'password'
+        eye_cross2.style.display = 'none'
+
+      }
+    })
+    eye_cross2.addEventListener('click',()=>{
+      if (input_pass2.type == 'text') {
+        input_pass2.type = 'password'
+        eye_cross2.style.display = 'none'
+      }else{
+        input_pass2.type = 'text'
+        eye_cross2.style.display = 'block'
+
+      }
+  })
+}
+
+
+
+
+  const input_name = document.getElementById('input-name')
+  const name_validate = document.getElementById('name-validate')
+  const input_email = document.getElementById('input-email')
+  const email_validate = document.getElementById('email-validate')
+  const input_pass = document.getElementById('input-password')
+  const pass_validate = document.getElementById('pass-validate')
+  const input_pass2 = document.getElementById('input-password2')
+  const pass_validate2 = document.getElementById('pass-validate2')
+  const form = document.getElementById('form')
+
+
+
+  function name(input_name, name_validate, event) {
+    if (input_name.value === '' || input_name.value == null) {
+      name_validate.innerHTML = 'Required*'
+      input_name.style.border = '1px solid red'
+      event.preventDefault()
+      
+    } else {
+      input_name.style.border = '1px solid green'
+      name_validate.innerHTML = ''
+
+    }
+  }
+
+  function email(input_email, email_validate, event) {
+    if (!input_email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/) && input_email.value !== '') {
+      input_email.style.border = '1px solid red'
+      email_validate.innerHTML = 'Invalid Email*'
+      event.preventDefault()
+
+    } else if (input_email.value === '' || input_email.value == null) {
+      input_email.style.border = '1px solid red'
+      email_validate.innerHTML = 'Required*'
+      event.preventDefault()
+
+    } else {
+      input_email.style.border = '1px solid green'
+      email_validate.innerHTML = ''
+
+    }
+  }
+
+  function password(input_pass, pass_validate, event) {
+
+    if (input_pass.value === '' || input_pass.value == null) {
+      pass_validate.innerHTML = 'Required*';
+      input_pass.style.border = '1px solid red';
+      event.preventDefault();
+    }
+
+    else if (input_pass.value.length < 8) {
+      pass_validate.innerHTML = 'Password must be at least 8 characters';
+      input_pass.style.border = '1px solid red';
+      event.preventDefault();
+    } else if (!/[A-Z]/.test(input_pass.value)) {
+      pass_validate.innerHTML = 'Password must contain at least one uppercase letter';
+      input_pass.style.border = '1px solid red';
+      event.preventDefault();
+    } else if (!/[a-z]/.test(input_pass.value)) {
+      pass_validate.innerHTML = 'Password must contain at least one lowercase letter';
+      input_pass.style.border = '1px solid red';
+      event.preventDefault();
+    } else if (!/\d/.test(input_pass.value)) {
+      pass_validate.innerHTML = 'Password must contain at least one digit';
+      input_pass.style.border = '1px solid red';
+      event.preventDefault();
+    } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(input_pass.value)) {
+      pass_validate.innerHTML = 'Password must contain at least one special character';
+      input_pass.style.border = '1px solid red';
+      event.preventDefault();
+    }
+    else {
+      input_pass.style.border = '1px solid green';
+      pass_validate.innerHTML = '';
+    }
+  }
+
+  function password_is_empty(input_pass, input_pass2, pass_validate2, event) {
+    if (input_pass.value !== input_pass2.value) {
+      pass_validate2.innerHTML = 'Password must be same*'
+      input_pass.style.border = '1px solid red'
+      input_pass2.style.border = '1px solid red'
+      event.preventDefault()
+    }
+    else if (input_pass.value !== '' && input_pass2.value !== '' && /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(input_pass.value) && /\d/.test(input_pass.value) && /[a-z]/.test(input_pass.value) && /[A-Z]/.test(input_pass.value)) {
+      pass_validate2.innerHTML = ''
+      input_pass.style.border = '1px solid green'
+      input_pass2.style.border = '1px solid green'
+    }
+    else if (input_pass.value === input_pass2.value) {
+      pass_validate2.innerHTML = ''
+
+    }
+  }
+
+
+  function password2(input_pass2, pass_validate2, event) {
+    if (input_pass2.value.trim() === '' || input_pass2.value === null) {
+      pass_validate2.innerHTML = 'Required*';
+      input_pass2.style.border = '1px solid red';
+      event.preventDefault();
+
+    }
+  }
+
+
+
+
+
+
+  form.addEventListener('submit', (event) => {
+    name(input_name, name_validate, event)
+    email(input_email, email_validate, event)
+    password(input_pass, pass_validate, event)
+    password_is_empty(input_pass, input_pass2, pass_validate2, btn, event)
+    password2(input_pass2, pass_validate2, event)
+    if (!event.defaultPrevented) {
+      form.reset();
+    }
+  })
+
+  input_name.addEventListener('input', (event) => {
+    name(input_name, name_validate, event)
+    func()
+
+  })
+  input_email.addEventListener('input', (event) => {
+    email(input_email, email_validate, event)
+
+  })
+  input_pass.addEventListener('input', (event) => {
+    password(input_pass, pass_validate, event)
+    password_is_empty(input_pass, input_pass2, pass_validate2, event)
+
+  })
+  input_pass2.addEventListener('input', (event) => {
+    password2(input_pass2, pass_validate2, event)
+    password_is_empty(input_pass, input_pass2, pass_validate2, event)
+  })
+
+
+  input_name.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') {
+      input_email.focus();
+      event.preventDefault();
+    }
+  });
+  input_email.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') {
+      input_pass.focus();
+      event.preventDefault();
+    }
+  });
+  input_pass.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') {
+      input_pass2.focus();
+      event.preventDefault();
+    }
+  });
+  input_pass2.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      // event.preventDefault(); 
+      form.submit()
+    }
+  });
+
+
+  const all_input = document.querySelectorAll('input')
+  const btn = document.getElementById('submit')
+
+  all_input.forEach(element => {
+    element.addEventListener('input', () => {
+      if (input_name.value !== '' && input_email.value !== '' && input_email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/) &&    !input_pass.value.length < 8 && input_pass.value!== '' && /[A-Z]/.test(input_pass.value)  && /[a-z]/.test(input_pass.value) && /\d/.test(input_pass.value) && /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(input_pass.value) && input_pass2.value !== '' && input_pass.value == input_pass2.value && input_pass.value !== '' && input_pass2.value !== '' && /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(input_pass.value) && /\d/.test(input_pass.value) && /[a-z]/.test(input_pass.value) && /[A-Z]/.test(input_pass.value)){
+        btn.style.backgroundColor = 'chocolate'
+    }
+      else {
+        btn.style.backgroundColor = 'rgba(156, 67, 4, 0.801)'
+      }
+    })
+
+  });
+
+
+
+
+</script>
+
+</html>
